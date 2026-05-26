@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Volunteer – Laura for LISD</title>
+  <meta name="description" content="Sign up to volunteer for Dr. Laura Marques's campaign for Leander ISD Board of Trustees." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <a href="index.html" class="header-logo">
+    <img src="images/logo small.png" alt="Laura for LISD" />
+  </a>
+  <nav>
+    <ul>
+      <li><a href="meet-laura.html">Laura's Story</a></li>
+      <li><a href="strengths.html">Strengths</a></li>
+      <li><a href="priorities.html">Priorities</a></li>
+      <li><a href="volunteer.html">Volunteer</a></li>
+      <li><a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd" class="btn-contribute" target="_blank" rel="noopener">Contribute</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="meet-laura.html">Laura's Story</a>
+  <a href="strengths.html">Strengths</a>
+  <a href="priorities.html">Priorities</a>
+  <a href="volunteer.html">Volunteer</a>
+  <a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd" class="btn-contribute-mobile" target="_blank" rel="noopener">Contribute</a>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <h1>
+    <span class="cursive-accent">Join</span>
+    Our Team
+  </h1>
+</div>
+
+<!-- ── VOLUNTEER FORM ── -->
+<div class="volunteer-page">
+  <div class="volunteer-inner">
+    <p class="lead">It takes neighbors talking to neighbors to win a school board race. Sign up below and we'll be in touch about how you can help reach LISD families in your community.</p>
+
+    <form class="volunteer-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first-name">First Name *</label>
+          <input type="text" id="first-name" name="first_name" required placeholder="First" />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name *</label>
+          <input type="text" id="last-name" name="last_name" required placeholder="Last" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Mobile Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(512) 555-0100" />
+      </div>
+      <div class="form-group">
+        <label for="zip">ZIP Code *</label>
+        <input type="text" id="zip" name="zip" required placeholder="78641" maxlength="10" />
+      </div>
+      <div class="how-to-help">
+        <p class="how-to-help-title">How would you like to help?</p>
+        <div class="checkbox-list">
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="host_event" />
+            <span>Host an event to introduce Laura to friends and neighbors</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="phone_text" />
+            <span>Make phone calls / send texts to neighbors</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="skills" />
+            <span>Share talents and skills (e.g. digital marketing / social media engagement)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="lit_drop" />
+            <span>Distribute literature to homes (block walking)</span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="yard_sign" id="yard-sign-check" />
+            <span>Put a sign in my yard</span>
+          </label>
+          <div id="yard-sign-address" style="display:none; margin-left:1.65rem; margin-top:0.5rem;">
+            <div class="yard-sign-fields">
+              <div class="form-group">
+                <label for="sign-street">Street Address *</label>
+                <input type="text" id="sign-street" name="sign_street" placeholder="123 Main St" />
+              </div>
+              <div class="form-row" style="margin-top:0.65rem;">
+                <div class="form-group">
+                  <label for="sign-city">City *</label>
+                  <input type="text" id="sign-city" name="sign_city" placeholder="Leander" />
+                </div>
+                <div class="form-group">
+                  <label for="sign-zip">ZIP Code *</label>
+                  <input type="text" id="sign-zip" name="sign_zip" placeholder="78641" maxlength="10" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="deliver_signs" />
+            <span>Deliver yard signs to other homes</span>
+          </label>
+        </div>
+        <div class="form-group" style="margin-top:0.85rem;">
+          <label for="notes">Notes</label>
+          <textarea id="notes" name="notes" placeholder="Anything else you'd like us to know..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full btn-lg">Sign Up to Volunteer</button>
+      <p class="volunteer-disclaimer">
+        By providing your phone number, you consent to receive periodic campaign updates from Laura for LISD, including by text message. Msg &amp; data rates may apply. Text STOP to unsubscribe.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo small.png" alt="Laura for LISD" />
+        </a>
+        <p class="footer-tagline">Laura for LISD</p>
+      </div>
+      <div class="footer-socials">
+        <h4>Follow Laura</h4>
+        <div class="social-links">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Paid for by Laura for LISD. Not authorized by any candidate or candidate's committee.</p>
+      <div style="display:flex;gap:1.25rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:info@laurforlisd.com">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+
+  const yardSignCheck = document.getElementById('yard-sign-check');
+  const yardSignAddress = document.getElementById('yard-sign-address');
+
+  function toggleYardSignAddress() {
+    yardSignAddress.style.display = yardSignCheck.checked ? 'block' : 'none';
+  }
+
+  yardSignCheck.addEventListener('change', toggleYardSignAddress);
+
+  if (new URLSearchParams(window.location.search).get('yard_sign') === '1') {
+    yardSignCheck.checked = true;
+    toggleYardSignAddress();
+    yardSignCheck.closest('.how-to-help').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+</script>
+</body>
+</html>
