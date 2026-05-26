@@ -20,7 +20,7 @@
       <li><a href="strengths.html">Strengths</a></li>
       <li><a href="priorities.html">Priorities</a></li>
       <li><a href="volunteer.html">Volunteer</a></li>
-      <li><a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd" class="btn-contribute" target="_blank" rel="noopener">Contribute</a></li>
+      <li><a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd/payment" class="btn-contribute" target="_blank" rel="noopener">Contribute</a></li>
     </ul>
   </nav>
   <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -32,7 +32,7 @@
   <a href="strengths.html">Strengths</a>
   <a href="priorities.html">Priorities</a>
   <a href="volunteer.html">Volunteer</a>
-  <a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd" class="btn-contribute-mobile" target="_blank" rel="noopener">Contribute</a>
+  <a href="https://donateway.com/donate/6EZKHtOQ/laura-for-lisd/payment" class="btn-contribute-mobile" target="_blank" rel="noopener">Contribute</a>
 </nav>
 
 <!-- ── PAGE HERO ── -->
@@ -87,35 +87,35 @@
             <span>Share talents and skills (e.g. digital marketing / social media engagement)</span>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" name="help[]" value="lit_drop" />
+            <input type="checkbox" name="help[]" value="lit_drop" id="lit-drop-check" />
             <span>Distribute literature to homes (block walking)</span>
           </label>
           <label class="checkbox-item">
             <input type="checkbox" name="help[]" value="yard_sign" id="yard-sign-check" />
             <span>Put a sign in my yard</span>
           </label>
-          <div id="yard-sign-address" style="display:none; margin-left:1.65rem; margin-top:0.5rem;">
-            <div class="yard-sign-fields">
+          <label class="checkbox-item">
+            <input type="checkbox" name="help[]" value="deliver_signs" id="deliver-signs-check" />
+            <span>Deliver yard signs to other homes</span>
+          </label>
+        </div>
+        <div id="yard-sign-address" style="display:none; margin-top:0.75rem;">
+          <div class="yard-sign-fields">
+            <div class="form-group">
+              <label for="sign-street">Street Address *</label>
+              <input type="text" id="sign-street" name="sign_street" placeholder="123 Main St" />
+            </div>
+            <div class="form-row" style="margin-top:0.65rem;">
               <div class="form-group">
-                <label for="sign-street">Street Address *</label>
-                <input type="text" id="sign-street" name="sign_street" placeholder="123 Main St" />
+                <label for="sign-city">City *</label>
+                <input type="text" id="sign-city" name="sign_city" placeholder="Leander" />
               </div>
-              <div class="form-row" style="margin-top:0.65rem;">
-                <div class="form-group">
-                  <label for="sign-city">City *</label>
-                  <input type="text" id="sign-city" name="sign_city" placeholder="Leander" />
-                </div>
-                <div class="form-group">
-                  <label for="sign-zip">ZIP Code *</label>
-                  <input type="text" id="sign-zip" name="sign_zip" placeholder="78641" maxlength="10" />
-                </div>
+              <div class="form-group">
+                <label for="sign-zip">ZIP Code *</label>
+                <input type="text" id="sign-zip" name="sign_zip" placeholder="78641" maxlength="10" />
               </div>
             </div>
           </div>
-          <label class="checkbox-item">
-            <input type="checkbox" name="help[]" value="deliver_signs" />
-            <span>Deliver yard signs to other homes</span>
-          </label>
         </div>
         <div class="form-group" style="margin-top:0.85rem;">
           <label for="notes">Notes</label>
@@ -165,19 +165,24 @@
   const mobileNav = document.getElementById('mobile-nav');
   hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
 
-  const yardSignCheck = document.getElementById('yard-sign-check');
+  const addressTriggers = [
+    document.getElementById('lit-drop-check'),
+    document.getElementById('yard-sign-check'),
+    document.getElementById('deliver-signs-check')
+  ];
   const yardSignAddress = document.getElementById('yard-sign-address');
 
-  function toggleYardSignAddress() {
-    yardSignAddress.style.display = yardSignCheck.checked ? 'block' : 'none';
+  function toggleAddressFields() {
+    const anyChecked = addressTriggers.some(cb => cb.checked);
+    yardSignAddress.style.display = anyChecked ? 'block' : 'none';
   }
 
-  yardSignCheck.addEventListener('change', toggleYardSignAddress);
+  addressTriggers.forEach(cb => cb.addEventListener('change', toggleAddressFields));
 
   if (new URLSearchParams(window.location.search).get('yard_sign') === '1') {
-    yardSignCheck.checked = true;
-    toggleYardSignAddress();
-    yardSignCheck.closest('.how-to-help').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('yard-sign-check').checked = true;
+    toggleAddressFields();
+    yardSignAddress.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 </script>
 </body>
