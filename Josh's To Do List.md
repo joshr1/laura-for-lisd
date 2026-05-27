@@ -1,0 +1,22 @@
+- Connect the 'Volunteer' forms to a Google Sheet on her account
+- Update all the photos
+- Replace the icons in the Priority boxes with more stylish options from https://phosphoricons.com/
+- Remove the logo from the footer
+- Update the 'Contact' email to address 
+- Remove privacy and terms links (or get them populated)
+- Fact check this line in the footer 'Paid for by Laura for LISD. Not authorized by any candidate or candidate's committee.'
+- Make a horizontal friendly logo and update the logo in the header 
+
+## Formspree Form Integration
+- Create a free account at formspree.io
+- Create a new form in Formspree and copy the endpoint ID (looks like `https://formspree.io/f/XXXXXXXX`)
+- Optionally create a second form endpoint if you want volunteer submissions separate from general signups
+- Give Claude the endpoint ID(s) and ask to wire up all forms:
+  - Homepage hero 'Join Our Campaign' form (index.html)
+  - Homepage bottom email signup form (index.html)
+  - Meet Laura bottom email signup form (meet-laura.html)
+  - Strengths bottom email signup form (strengths.html)
+  - Priorities bottom email signup form (priorities.html)
+  - Volunteer form including 'How would you like to help?' checkboxes and address fields (volunteer.html)
+- Test each form by submitting a test entry and confirming it arrives in Laura's email
+- Set the reply-to email in Formspree dashboard to Laura's address
