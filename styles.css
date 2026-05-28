@@ -732,6 +732,12 @@ footer {
   border-top: 4px solid var(--red);
   background: var(--off-white);
   overflow: hidden;
+  scroll-margin-top: 72px;
+}
+
+.priority-card-body p a {
+  color: var(--blue);
+  font-weight: 600;
 }
 
 .priority-full-card-img {
