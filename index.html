@@ -6,6 +6,7 @@
   <title>Laura for LISD – Official Campaign Website</title>
   <meta name="description" content="Dr. Laura Marques is running for the Leander ISD Board of Trustees. She believes deeply in what public education can be for every child." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="posthog.js"></script>
 </head>
 <body>
 
@@ -261,6 +262,29 @@
   const mobileNav = document.getElementById('mobile-nav');
   hamburger.addEventListener('click', () => {
     mobileNav.classList.toggle('open');
+  });
+
+  // Contribute clicks
+  document.querySelectorAll('a[href*="donateway.com"]').forEach(el => {
+    el.addEventListener('click', () => {
+      posthog.capture('contribute_clicked', { location: el.closest('.hero') ? 'hero' : el.closest('.action-section') ? 'action_section' : 'nav' });
+    });
+  });
+
+  // Social link clicks
+  document.querySelectorAll('.social-link').forEach(el => {
+    el.addEventListener('click', () => {
+      posthog.capture('social_link_clicked', { platform: el.textContent.trim().toLowerCase() });
+    });
+  });
+
+  // Email signup forms
+  document.querySelectorAll('.signup-form').forEach((form, i) => {
+    form.addEventListener('submit', () => {
+      const email = form.querySelector('input[type="email"]').value;
+      posthog.identify(email, { email });
+      posthog.capture('email_signup_submitted', { page: 'index', form_position: i === 0 ? 'hero' : 'bottom' });
+    });
   });
 </script>
 

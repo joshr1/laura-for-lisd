@@ -6,6 +6,7 @@
   <title>Why I'm Running – Laura for LISD</title>
   <meta name="description" content="Why Dr. Laura Marques is running for the Leander ISD Board of Trustees." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="posthog.js"></script>
 </head>
 <body>
 
@@ -152,6 +153,20 @@
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobile-nav');
   hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+
+  document.querySelectorAll('a[href*="donateway.com"]').forEach(el => {
+    el.addEventListener('click', () => posthog.capture('contribute_clicked', { location: 'nav' }));
+  });
+
+  document.querySelectorAll('.social-link').forEach(el => {
+    el.addEventListener('click', () => posthog.capture('social_link_clicked', { platform: el.textContent.trim().toLowerCase() }));
+  });
+
+  document.querySelector('.signup-form').addEventListener('submit', function() {
+    const email = this.querySelector('input[type="email"]').value;
+    posthog.identify(email, { email });
+    posthog.capture('email_signup_submitted', { page: 'why' });
+  });
 </script>
 </body>
 </html>

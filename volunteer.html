@@ -6,6 +6,7 @@
   <title>Volunteer – Laura for LISD</title>
   <meta name="description" content="Sign up to volunteer for Dr. Laura Marques's campaign for Leander ISD Board of Trustees." />
   <link rel="stylesheet" href="styles.css" />
+  <script src="posthog.js"></script>
 </head>
 <body>
 
@@ -184,6 +185,26 @@
     toggleAddressFields();
     yardSignAddress.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
+
+  // Track yard sign checkbox specifically
+  document.getElementById('yard-sign-check').addEventListener('change', function() {
+    if (this.checked) posthog.capture('yard_sign_requested');
+  });
+
+  document.querySelectorAll('a[href*="donateway.com"]').forEach(el => {
+    el.addEventListener('click', () => posthog.capture('contribute_clicked', { location: 'nav' }));
+  });
+
+  document.querySelectorAll('.social-link').forEach(el => {
+    el.addEventListener('click', () => posthog.capture('social_link_clicked', { platform: el.textContent.trim().toLowerCase() }));
+  });
+
+  document.querySelector('.volunteer-form').addEventListener('submit', function() {
+    const email = this.querySelector('input[type="email"]').value;
+    const interests = Array.from(this.querySelectorAll('input[name="help[]"]:checked')).map(cb => cb.value);
+    posthog.identify(email, { email });
+    posthog.capture('volunteer_signup_submitted', { interests });
+  });
 </script>
 </body>
 </html>
